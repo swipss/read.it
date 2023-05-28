@@ -4,7 +4,7 @@ import defaultimage from "../assets/defaultimage.jpeg";
 import moment from "moment";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import db from "../firebase";
-import AuthContext, { IUserData } from "../AuhtContext";
+import AuthContext, { TUserData } from "../AuhtContext";
 import React, { useContext, useEffect, useState } from "react";
 import { ChatBubbleOvalLeftIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
@@ -22,13 +22,13 @@ export default function Post({
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const hasUserLikedPost = post?.likedBy?.includes(String(user?.uid));
-  const [postUser, setPostUser] = useState<IUserData | null>(null);
+  const [postUser, setPostUser] = useState<TUserData | null>(null);
 
   async function fetchPostAuthor() {
     const dbRef = doc(db, "users", post?.postedBy);
     const docSnap = await getDoc(dbRef);
     if (docSnap.exists()) {
-      setPostUser(docSnap.data() as IUserData);
+      setPostUser(docSnap.data() as TUserData);
     }
   }
   useEffect(() => {
@@ -98,7 +98,7 @@ export default function Post({
         </div>
 
         <h1 className="text-xl font-semibold">{post?.title}</h1>
-        <p className="text-base font-normal">{post?.content}</p>
+        <p className="text-base break-all ">{post?.content}</p>
         {post?.imageUrl && (
           <img
             src={post?.imageUrl}

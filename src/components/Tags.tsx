@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useOutsideClick } from "../helpers/useOutsideClick";
 
 const defaultTags = [
   "Gaming",
@@ -31,24 +32,10 @@ const TagInput = ({
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleOutsideClick = (event: any) => {
-      if (
-        suggestionsRef.current &&
-        !suggestionsRef.current.contains(event.target)
-      ) {
-        setShowSuggestions(false);
-      }
-    };
+  useOutsideClick(suggestionsRef, () => {
+    setShowSuggestions(false);
+  });
 
-    document.addEventListener("mousedown", handleOutsideClick);
-    document.addEventListener("touchstart", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-      document.removeEventListener("touchstart", handleOutsideClick);
-    };
-  }, []);
   return (
     <div className="flex flex-col items-start">
       <div className="flex flex-wrap gap-2 mt-2">

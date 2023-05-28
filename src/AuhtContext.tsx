@@ -1,16 +1,16 @@
 import { User } from "firebase/auth";
 import React, { createContext } from "react";
-export interface IUserData {
+export type TUserData = {
   email: string;
   uid: string;
   name: string;
   bio: string;
   imageUrl: string;
   coverImageUrl: string;
-}
+};
 const AuthContext = createContext({
   user: null as User | null,
-  userData: null as IUserData | null,
+  userData: null as TUserData | null,
 });
 
 export default AuthContext;

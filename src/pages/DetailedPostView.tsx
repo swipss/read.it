@@ -115,7 +115,7 @@ export default function DetailedPostView() {
               ))}
             </div>
             <p className="text-xl font-semibold">{post?.title}</p>
-            <p className="text-base font-normal">{post?.content}</p>
+            <p className="text-base font-normal break-all">{post?.content}</p>
             {/* if imageurl is an image, show image, if video show video */}
             {post?.imageUrl && (
               <img
