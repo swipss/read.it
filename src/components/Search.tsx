@@ -6,6 +6,7 @@ import db from "../firebase";
 import useDebounce from "../helpers/useDebounce";
 import DefaultProfileImage from "./DefaultProfileImage";
 import { useOutsideClick } from "../helpers/useOutsideClick";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
   const [input, setInput] = useState("");
@@ -86,6 +87,7 @@ function SearchResultDropdown({
   refr?: React.MutableRefObject<HTMLDivElement | null>;
   loading: boolean;
 }) {
+  const navigate = useNavigate();
   return (
     <div ref={refr} className="absolute z-50 w-full p-4 mt-2 top-12">
       <div className="z-50 flex flex-col p-2 border rounded-lg bg-brand-dark border-brand-brown text-brand-white">
@@ -101,9 +103,9 @@ function SearchResultDropdown({
           </div>
         )}
         {searchResults?.map((user) => (
-          <a
+          <div
             key={user?.uid}
-            href={`/profile/${user?.uid}`}
+            onClick={() => navigate(`/profile/${user?.uid}`)}
             className="flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-brand-brown"
           >
             {user?.imageUrl ? (
@@ -116,7 +118,7 @@ function SearchResultDropdown({
             )}
 
             <span className="text-sm font-semibold">{user?.name}</span>
-          </a>
+          </div>
         ))}
       </div>
     </div>
