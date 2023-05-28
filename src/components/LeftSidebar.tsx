@@ -8,11 +8,13 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import DefaultProfileImage from "./DefaultProfileImage";
 import { useOutsideClick } from "../helpers/useOutsideClick";
+import { useNavigate } from "react-router-dom";
 
 export default function LeftSidebar() {
   const { user, userData } = useContext(AuthContext);
   const [userPopUp, setUserPopUp] = useState(false);
   const userPopUpRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useOutsideClick(userPopUpRef, () => {
     setUserPopUp(false);
@@ -48,23 +50,20 @@ export default function LeftSidebar() {
           </a>
           <ul className="flex gap-2 font-mediumspace-y md:flex-col md:mt-4">
             <li>
-              <a
-                href="#"
-                className="flex items-center w-full px-4 py-2 text-xl font-semibold transition-all duration-75 rounded-full text-brand-white hover:bg-brand-brown"
-              >
+              <div className="flex items-center w-full px-4 py-2 text-xl font-semibold transition-all duration-75 rounded-full text-brand-white hover:bg-brand-brown">
                 <GlobeAmericasIcon className="w-6 h-6 text-brand-white" />
                 <span className="ml-2">Explore</span>
-              </a>
+              </div>
             </li>
             {user && (
               <li>
-                <a
-                  href={`/profile/${userData?.uid}`}
+                <div
+                  onClick={() => navigate(`/profile/${user?.uid}`)}
                   className="flex items-center w-full px-4 py-2 text-xl font-semibold transition-all duration-75 rounded-full text-brand-white hover:bg-brand-brown"
                 >
                   <UserIcon className="w-6 h-6 text-brand-white" />
                   <span className="ml-2">Profile</span>
-                </a>
+                </div>
               </li>
             )}
           </ul>
