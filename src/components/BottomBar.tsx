@@ -17,24 +17,24 @@ export default function BottomBar({
   return (
     <div
       id="default-sidebar"
-      className="fixed bottom-0  z-40  w-full transition-transform -translate-x-full sm:translate-x-0"
+      className="fixed bottom-0 z-40 w-full "
       aria-label="Sidebar"
     >
       <div className="w-full overflow-y-auto bg-brand-red ">
-        <div className="border border-brand-brown gap-4  py-3 px-80 flex items-center justify-between">
+        <div className="flex flex-col items-center justify-between gap-4 px-4 py-3 border md:flex-row border-brand-brown md:px-80">
           <div>
-            <h1 className="font-bold text-2xl text-brand-white">
+            <h1 className="text-2xl font-bold text-brand-white">
               Dont miss what's happening on read.it
             </h1>
 
-            <p className="text-brand-white text-sm">
+            <p className="text-sm text-brand-white">
               People on read.it are the first to know.
             </p>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <button
               onClick={handleClickLogIn}
-              className="button-small border-brand-white border text-brand-white"
+              className="border button-small border-brand-white text-brand-white"
             >
               Log in
             </button>

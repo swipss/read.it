@@ -13,8 +13,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:postId" element={<DetailedPostView />} />
-          <Route path="profile/:userId" element={<Profile />} />
+          <Route path="/:postId/" element={<DetailedPostView />} />
+          <Route path="profile/:userId/" element={<Profile />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useOutsideClick } from "../helpers/useOutsideClick";
 
 const defaultTags = [
@@ -28,7 +28,7 @@ const TagInput = ({
   setTags: React.Dispatch<React.SetStateAction<string[]>>;
 }) => {
   const [input, setInput] = useState("");
-  const [suggestions, setSuggestions] = useState(defaultTags);
+  const suggestions = defaultTags;
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef<HTMLDivElement>(null);
 

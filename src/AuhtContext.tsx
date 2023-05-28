@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import React, { createContext } from "react";
+import { createContext } from "react";
 export type TUserData = {
   email: string;
   uid: string;
@@ -7,6 +7,7 @@ export type TUserData = {
   bio: string;
   imageUrl: string;
   coverImageUrl: string;
+  following: string[];
 };
 const AuthContext = createContext({
   user: null as User | null,

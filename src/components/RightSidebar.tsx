@@ -42,13 +42,13 @@ export default function RightSidebar({
   // handle set username in firestore
 
   return (
-    <aside
-      id="default-sidebar"
-      className="fixed top-0 right-0 z-40 w-[480px] h-screen transition-transform -translate-x-full sm:translate-x-0"
-      aria-label="Sidebar"
-    >
-      <div className="h-full overflow-y-auto border-l pr-28 bg-brand-dark border-brand-brown">
-        <div className="flex flex-col gap-4 p-4 m-4 border rounded-xl border-brand-brown">
+    <>
+      <aside
+        id="default-sidebar"
+        className="md:fixed block top-0 right-0 z-40 md:max-w-[400px] w-full transition-all duration-75 md:h-screen"
+        aria-label="Sidebar"
+      >
+        <div className="flex flex-col items-center w-full h-full gap-4 p-4 overflow-y-auto border-l bg-brand-dark border-brand-brown ">
           <h1 className="text-2xl font-bold text-brand-white">
             New to read.it?
           </h1>
@@ -70,7 +70,7 @@ export default function RightSidebar({
             Create account
           </button>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 }

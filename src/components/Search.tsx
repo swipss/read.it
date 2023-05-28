@@ -5,7 +5,6 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "../firebase";
 import useDebounce from "../helpers/useDebounce";
 import DefaultProfileImage from "./DefaultProfileImage";
-import { useNavigate } from "react-router-dom";
 import { useOutsideClick } from "../helpers/useOutsideClick";
 
 export default function Search() {
@@ -18,6 +17,7 @@ export default function Search() {
 
   useOutsideClick(searchResultRef, () => {
     setIsSearchResultDropdownOpen(false);
+    setSearchResult([]);
   });
 
   // fetch users from firestore
@@ -86,7 +86,6 @@ function SearchResultDropdown({
   refr?: React.MutableRefObject<HTMLDivElement | null>;
   loading: boolean;
 }) {
-  const navigate = useNavigate();
   return (
     <div ref={refr} className="absolute z-50 w-full p-4 mt-2 top-12">
       <div className="z-50 flex flex-col p-2 border rounded-lg bg-brand-dark border-brand-brown text-brand-white">

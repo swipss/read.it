@@ -6,7 +6,6 @@ import {
 } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import db from "../firebase";
-import { FirebaseError } from "firebase/app";
 
 const auth = getAuth();
 

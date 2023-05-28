@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import defaultImage from "../assets/defaultimage.jpeg";
 import { doc, setDoc } from "firebase/firestore";
 import db from "../firebase";
 import AuthContext from "../AuhtContext";

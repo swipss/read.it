@@ -4,7 +4,7 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../firebase";
 
 export default function UsernameModal() {
-  const { user, userData } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [username, setUsername] = useState("");
 
   async function handleSetUsername(e: React.FormEvent<HTMLFormElement>) {

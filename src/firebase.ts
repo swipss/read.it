@@ -1,12 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {
-  NextOrObserver,
-  User,
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {

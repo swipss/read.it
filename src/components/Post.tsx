@@ -9,7 +9,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { ChatBubbleOvalLeftIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 import DefaultProfileImage from "./DefaultProfileImage";
-import Vibrant from "node-vibrant";
 import { tagColors } from "./Tags";
 
 export default function Post({
@@ -109,7 +108,7 @@ export default function Post({
         {post?.videoUrl && (
           <video
             src={post?.videoUrl}
-            className="object-cover w-full rounded-md h-80"
+            className="object-cover rounded-md w-max h-80"
             controls
           />
         )}

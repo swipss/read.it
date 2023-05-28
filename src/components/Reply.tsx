@@ -1,5 +1,4 @@
 import { PostType, ReplyType } from "../pages/Home";
-import defaultImage from "../assets/defaultimage.jpeg";
 import moment from "moment";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import AuthContext from "../AuhtContext";
